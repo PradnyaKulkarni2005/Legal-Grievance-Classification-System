@@ -6,6 +6,15 @@ from transformers import DistilBertTokenizerFast, DistilBertModel
 from deep_translator import GoogleTranslator
 
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 DEVICE = torch.device("cpu")
 
